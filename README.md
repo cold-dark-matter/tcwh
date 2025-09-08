@@ -1,0 +1,1 @@
+This repository contains the code to reproduce the results of the paper " Effect of higher-order interactions on tipping cascades on complex networks". All the codes are listed with their respective figure numbers. Fig. 7 can be reproduced by just changing the parameters in the provided codes. 
