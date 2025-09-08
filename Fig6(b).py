@@ -57,9 +57,7 @@ def make_model(d, d1):
         return dx
     return model
 
-# ---------------------
-# Worker
-# ---------------------
+
 def simulate_cell(args):
     ii, jj, d1, d, t_end, t_step = args
     x_current = np.zeros(N * dim)
@@ -115,7 +113,6 @@ def main():
     plt.tight_layout()
     plt.show()
 
-    # Optional: save CSV
     import pandas as pd
     rows = []
     for ii, d1 in enumerate(d1_vals):
@@ -129,3 +126,4 @@ def main():
 if __name__ == "__main__":
 
     main()
+
