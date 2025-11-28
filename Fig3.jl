@@ -43,7 +43,7 @@ end
     function f!(du, u, p, t)
         linear_term = A_sparse * u
         hoi_term    = compute_hoi(u, i_idx, j_idx, k_idx, val_idx, N)
-        @inbounds @. du = -a * (u - x0)^3 + b * (u - x0) + r + d * linear_term + d1 * hoi_term
+        @inbounds @. du = -a * (u - x0)^3 + b * (u - x0) + r + d * linear_term + (d1 * hoi_term)/2
         return nothing
     end
     return f!
@@ -135,4 +135,5 @@ end
 
 df = DataFrame(rows)
 CSV.write("result.csv", df)
+
 
