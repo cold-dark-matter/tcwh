@@ -53,7 +53,7 @@ def make_model(d, d1):
         dx = np.zeros_like(states)
         linear_term = A.dot(x)
         hoi_term = compute_hoi(x, i_idx, j_idx, k_idx, A1_vals, N)
-        dx[0:dim * N:dim] = -a * (x - x0) ** 3 + b * (x - x0) + r + d * linear_term + d1 * hoi_term 
+        dx[0:dim * N:dim] = -a * (x - x0) ** 3 + b * (x - x0) + r + d * linear_term + (d1 * hoi_term)/2 
         return dx
     return model
 
@@ -126,4 +126,5 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
