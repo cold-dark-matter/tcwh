@@ -56,7 +56,7 @@ def model(states, t, r):
     dx = np.zeros_like(states)
     linear_term = np.dot(A,x)
     hoi_term = compute_hoi(x, i_idx, j_idx, k_idx, A1_vals, N)
-    dx[0:dim * N:dim] = -a * (x - x0)**3 + b * (x - x0) + r + d * linear_term + d1 * hoi_term
+    dx[0:dim * N:dim] = -a * (x - x0)**3 + b * (x - x0) + r + d * linear_term + (d1 * hoi_term)/2
     return dx
 
 x_current = np.zeros(N * dim)
@@ -90,3 +90,4 @@ plt.show()
 
 print("Time taken:", time.time() - start_time, "seconds")
 # np.savetxt("tipped_counts_vs_time_random_d_0.08_d1_-0.05_undirected_facebook_414_repulsive_hoi.txt",np.column_stack((times,np.array(tipped_counts))))
+
